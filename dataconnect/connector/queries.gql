@@ -1,0 +1,80 @@
+query GetUser($id: UUID!) @auth(level: PUBLIC) {
+  user(id: $id) {
+    id
+    username
+    picture
+  }
+}
+
+query GetUserViaUsername($username: String!) @auth(level: PUBLIC) {
+  users(where: { username: { eq: $username } }) {
+    id
+    username
+    picture
+  }
+}
+
+query GetAllUsers @auth(level: PUBLIC) {
+  users {
+    id
+    username
+    picture
+  }
+}
+
+query GetAllPosts @auth(level: PUBLIC) {
+  posts(orderBy: { createdAt: DESC }) {
+    id
+    content
+    createdAt
+    author {
+      id
+      username
+      picture
+    }
+    likes_on_post {
+      id
+      user {
+        id
+        username
+      }
+    }
+    comments_on_post(orderBy: { createdAt: DESC }) {
+      id
+      content
+      author {
+        id
+        username
+        picture
+      }
+    }
+  }
+}
+
+query GetAllPostsByMe($authorId: UUID!) @auth(level: PUBLIC) {
+  posts(orderBy: { createdAt: DESC }, where: { authorId: { eq: $authorId } }) {
+    id
+    content
+    createdAt
+    author {
+      id
+      username
+      picture
+    }
+    comments_on_post(orderBy: { createdAt: DESC }) {
+      content
+      author {
+        id
+        username
+      }
+      createdAt
+    }
+    likes_on_post {
+      id
+      user {
+        id
+        username
+      }
+    }
+  }
+}

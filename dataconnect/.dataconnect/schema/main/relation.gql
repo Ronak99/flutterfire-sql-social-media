@@ -1,0 +1,124 @@
+extend type Post {
+  """
+  ✨ List `Comment` objects in a one-to-many relationship (where `Comment`.`post` is this object).
+  """
+  comments_on_post(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Comment_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Comment_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Comment!]! @fdc_generated(from: "Comment.post", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Like` objects in a one-to-many relationship (where `Like`.`post` is this object).
+  """
+  likes_on_post(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Like_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Like_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Like!]! @fdc_generated(from: "Like.post", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+}
+extend type User {
+  """
+  ✨ List `Comment` objects in a one-to-many relationship (where `Comment`.`author` is this object).
+  """
+  comments_on_author(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Comment_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Comment_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Comment!]! @fdc_generated(from: "Comment.author", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Like` objects in a one-to-many relationship (where `Like`.`user` is this object).
+  """
+  likes_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Like_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Like_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Like!]! @fdc_generated(from: "Like.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Post` objects in a one-to-many relationship (where `Post`.`author` is this object).
+  """
+  posts_on_author(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Post_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Post_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+  ): [Post!]! @fdc_generated(from: "Post.author", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+}

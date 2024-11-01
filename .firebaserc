@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "default": "birdwatcher-c8f87"
+  },
+  "dataconnectEmulatorConfig": {
+    "postgres": {
+      "localConnectionString": "postgresql://localhost:5432?sslmode=disable"
+    }
+  }
+}

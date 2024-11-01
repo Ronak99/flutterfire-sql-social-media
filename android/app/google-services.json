@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "12658543711",
+    "project_id": "birdwatcher-c8f87",
+    "storage_bucket": "birdwatcher-c8f87.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12658543711:android:b42e6022163a8e13109fea",
+        "android_client_info": {
+          "package_name": "com.ronakpunase.dataconnect.dataconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6c8_5uyHZarLkQyMSIHUqcCLV0CF3Xqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

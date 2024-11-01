@@ -1,0 +1,73 @@
+mutation CreateRonak99 {
+  # 7fe91f92cbb4400da92f7e6a7631cd2a
+  user_insert(
+    data: { username: "Ronak992", picture: "https://www.picsum.photos/500" }
+  )
+}
+
+mutation CreateUserRonakPuStack {
+  # 228627eada1940ae8b48ab916f941210
+  user_insert(data: { username: "RonakPustack" })
+}
+
+mutation CreateTestPosts {
+  post_insertMany(
+    data: [
+      {
+        content: "Hi, this is Ronak99, and here goes my first post."
+        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+      }
+      {
+        content: "Hi, this is Ronak99, and here goes my second post."
+        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+      }
+      {
+        content: "Hi, this is Ronak99, and here goes my third post."
+        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+      }
+      {
+        content: "Hi, this is RonakPustack, and here goes my first post."
+        authorId: "228627eada1940ae8b48ab916f941210"
+      }
+      {
+        content: "Hi, this is RonakPustack, and here goes my second post."
+        authorId: "228627eada1940ae8b48ab916f941210"
+      }
+    ]
+  )
+}
+
+mutation CreateTestComments {
+  comment_insertMany(
+    data: [
+      {
+        content: "Hi Ronak99, welcome, good to see you. This is my first comment."
+        authorId: "228627eada1940ae8b48ab916f941210"
+        postId: "c2ecf3721a0040679514bec8f4233722"
+      }
+      {
+        content: "Hi RonakPustack, awesome to know that this is your first comment, glad that I helped you get started."
+        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+        postId: "c2ecf3721a0040679514bec8f4233722"
+      }
+      {
+        content: "Oh yeah, you sure did."
+        authorId: "228627eada1940ae8b48ab916f941210"
+        postId: "c2ecf3721a0040679514bec8f4233722"
+      }
+    ]
+  )
+}
+
+mutation LikePost {
+  like_insert(
+    data: {
+      userId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+      postId: "c2ecf3721a0040679514bec8f4233722"
+    }
+  )
+}
+
+# mutation DislikePost {
+#   like_delete(id: "")
+# }
