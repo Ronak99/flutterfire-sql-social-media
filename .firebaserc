@@ -1,7 +1,9 @@
 {
   "projects": {
-    "default": "birdwatcher-c8f87"
+    "default": "dataconnect-flutter-tutorial"
   },
+  "targets": {},
+  "etags": {},
   "dataconnectEmulatorConfig": {
     "postgres": {
       "localConnectionString": "postgresql://localhost:5432?sslmode=disable"

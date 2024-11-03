@@ -5,11 +5,11 @@ It has the same format as `Comment_Key`, but is only used as mutation return val
 """
 scalar Comment_KeyOutput
 """
-✨ `Like_KeyOutput` returns the primary key fields of table type `Like`.
+✨ `Object_KeyOutput` returns the primary key fields of table type `Object`.
 
-It has the same format as `Like_Key`, but is only used as mutation return value.
+It has the same format as `Object_Key`, but is only used as mutation return value.
 """
-scalar Like_KeyOutput
+scalar Object_KeyOutput
 """
 ✨ `Post_KeyOutput` returns the primary key fields of table type `Post`.
 
@@ -197,109 +197,93 @@ input Comment_Order {
   createdAt: OrderDirection
 }
 """
-✨ Generated data input type for table 'Like'. It includes all necessary fields for creating or upserting rows into table.
+✨ Generated data input type for table 'Object'. It includes all necessary fields for creating or upserting rows into table.
 """
-input Like_Data {
+input Object_Data {
   """
-  ✨ Generated from Field `Like`.`id` of type `UUID!`
+  ✨ Generated from Field `Object`.`id` of type `UUID!`
   """
   id: UUID
   """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Like`.`id` of type `UUID!`)
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Object`.`id` of type `UUID!`)
   """
   id_expr: UUID_Expr
   """
-  ✨ Generated from Field `Like`.`postId` of type `UUID!`
+  ✨ Generated from Field `Object`.`picture` of type `String!`
   """
-  postId: UUID
+  picture: String
   """
-  ✨ `_expr` server value variant of `postId` (✨ Generated from Field `Like`.`postId` of type `UUID!`)
+  ✨ `_expr` server value variant of `picture` (✨ Generated from Field `Object`.`picture` of type `String!`)
   """
-  postId_expr: UUID_Expr
+  picture_expr: String_Expr
   """
-  ✨ Generated from Field `Like`.`userId` of type `UUID!`
+  ✨ Generated from Field `Object`.`username` of type `String!`
   """
-  userId: UUID
+  username: String
   """
-  ✨ `_expr` server value variant of `userId` (✨ Generated from Field `Like`.`userId` of type `UUID!`)
+  ✨ `_expr` server value variant of `username` (✨ Generated from Field `Object`.`username` of type `String!`)
   """
-  userId_expr: UUID_Expr
-  """
-  ✨ Generated from Field `Like`.`post` of type `Post!`
-  """
-  post: Post_Key
-  """
-  ✨ Generated from Field `Like`.`user` of type `User!`
-  """
-  user: User_Key
+  username_expr: String_Expr
 }
 """
-✨ Generated filter input type for table 'Like'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
+✨ Generated filter input type for table 'Object'. This input allows filtering objects using various conditions. Use `_or`, `_and`, and `_not` to compose complex filters.
 """
-input Like_Filter {
+input Object_Filter {
   """
   Apply multiple filter conditions using `AND` logic.
   """
-  _and: [Like_Filter!]
+  _and: [Object_Filter!]
   """
   Negate the result of the provided filter condition.
   """
-  _not: Like_Filter
+  _not: Object_Filter
   """
   Apply multiple filter conditions using `OR` logic.
   """
-  _or: [Like_Filter!]
+  _or: [Object_Filter!]
   """
-  ✨ Generated from Field `Like`.`id` of type `UUID!`
+  ✨ Generated from Field `Object`.`id` of type `UUID!`
   """
   id: UUID_Filter
   """
-  ✨ Generated from Field `Like`.`postId` of type `UUID!`
+  ✨ Generated from Field `Object`.`picture` of type `String!`
   """
-  postId: UUID_Filter
+  picture: String_Filter
   """
-  ✨ Generated from Field `Like`.`userId` of type `UUID!`
+  ✨ Generated from Field `Object`.`username` of type `String!`
   """
-  userId: UUID_Filter
-  """
-  ✨ Generated from Field `Like`.`post` of type `Post!`
-  """
-  post: Post_Filter
-  """
-  ✨ Generated from Field `Like`.`user` of type `User!`
-  """
-  user: User_Filter
+  username: String_Filter
 }
 """
-✨ Generated first-row input type for table 'Like'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
+✨ Generated first-row input type for table 'Object'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
 """
-input Like_FirstRow {
+input Object_FirstRow {
   """
   Order the result by the specified fields.
   """
-  orderBy: [Like_Order!]
+  orderBy: [Object_Order!]
   """
   Filters rows based on the specified conditions.
   """
-  where: Like_Filter
+  where: Object_Filter
 }
 """
-✨ Generated key input type for table 'Like'. It represents the primary key fields used to uniquely identify a row in the table.
+✨ Generated key input type for table 'Object'. It represents the primary key fields used to uniquely identify a row in the table.
 """
-input Like_Key {
+input Object_Key {
   """
-  ✨ Generated from Field `Like`.`id` of type `UUID!`
+  ✨ Generated from Field `Object`.`id` of type `UUID!`
   """
   id: UUID
   """
-  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Like`.`id` of type `UUID!`)
+  ✨ `_expr` server value variant of `id` (✨ Generated from Field `Object`.`id` of type `UUID!`)
   """
   id_expr: UUID_Expr
 }
 """
-✨ Generated list filter input type for table 'Like'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
+✨ Generated list filter input type for table 'Object'. This input applies filtering logic based on the count or existence of related objects that matches certain criteria.
 """
-input Like_ListFilter {
+input Object_ListFilter {
   """
   The desired number of objects that match the condition (defaults to at least one).
   """
@@ -307,32 +291,24 @@ input Like_ListFilter {
   """
   Condition of the related objects to filter for.
   """
-  exist: Like_Filter
+  exist: Object_Filter
 }
 """
-✨ Generated order input type for table 'Like'. This input defines the sorting order of rows in query results based on one or more fields.
+✨ Generated order input type for table 'Object'. This input defines the sorting order of rows in query results based on one or more fields.
 """
-input Like_Order {
+input Object_Order {
   """
-  ✨ Generated from Field `Like`.`id` of type `UUID!`
+  ✨ Generated from Field `Object`.`id` of type `UUID!`
   """
   id: OrderDirection
   """
-  ✨ Generated from Field `Like`.`postId` of type `UUID!`
+  ✨ Generated from Field `Object`.`picture` of type `String!`
   """
-  postId: OrderDirection
+  picture: OrderDirection
   """
-  ✨ Generated from Field `Like`.`userId` of type `UUID!`
+  ✨ Generated from Field `Object`.`username` of type `String!`
   """
-  userId: OrderDirection
-  """
-  ✨ Generated from Field `Like`.`post` of type `Post!`
-  """
-  post: Post_Order
-  """
-  ✨ Generated from Field `Like`.`user` of type `User!`
-  """
-  user: User_Order
+  username: OrderDirection
 }
 """
 ✨ Generated data input type for table 'Post'. It includes all necessary fields for creating or upserting rows into table.
@@ -419,10 +395,6 @@ input Post_Filter {
   ✨ Generated from Field `Post`.`comments_on_post` of type `[Comment!]!`
   """
   comments_on_post: Comment_ListFilter
-  """
-  ✨ Generated from Field `Post`.`likes_on_post` of type `[Like!]!`
-  """
-  likes_on_post: Like_ListFilter
 }
 """
 ✨ Generated first-row input type for table 'Post'. This input selects the first row matching the filter criteria, ordered according to the specified conditions.
@@ -549,10 +521,6 @@ input User_Filter {
   ✨ Generated from Field `User`.`comments_on_author` of type `[Comment!]!`
   """
   comments_on_author: Comment_ListFilter
-  """
-  ✨ Generated from Field `User`.`likes_on_user` of type `[Like!]!`
-  """
-  likes_on_user: Like_ListFilter
   """
   ✨ Generated from Field `User`.`posts_on_author` of type `[Post!]!`
   """

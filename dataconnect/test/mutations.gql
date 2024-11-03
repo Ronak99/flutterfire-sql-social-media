@@ -1,7 +1,9 @@
-mutation CreateRonak99 {
-  # 7fe91f92cbb4400da92f7e6a7631cd2a
+mutation CreateFirebase {
   user_insert(
-    data: { username: "Ronak992", picture: "https://www.picsum.photos/500" }
+    data: {
+      username: "Firebase"
+      picture: "https://firebase.google.com/static/images/brand-guidelines/logo-vertical.png"
+    }
   )
 }
 
@@ -15,23 +17,23 @@ mutation CreateTestPosts {
     data: [
       {
         content: "Hi, this is Ronak99, and here goes my first post."
-        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
       }
       {
         content: "Hi, this is Ronak99, and here goes my second post."
-        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
       }
       {
         content: "Hi, this is Ronak99, and here goes my third post."
-        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
       }
       {
         content: "Hi, this is RonakPustack, and here goes my first post."
-        authorId: "228627eada1940ae8b48ab916f941210"
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
       }
       {
         content: "Hi, this is RonakPustack, and here goes my second post."
-        authorId: "228627eada1940ae8b48ab916f941210"
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
       }
     ]
   )
@@ -41,33 +43,73 @@ mutation CreateTestComments {
   comment_insertMany(
     data: [
       {
-        content: "Hi Ronak99, welcome, good to see you. This is my first comment."
-        authorId: "228627eada1940ae8b48ab916f941210"
-        postId: "c2ecf3721a0040679514bec8f4233722"
+        content: "Ronak99's comment 1."
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
+        postId: "d6bb2907a46e49f6bfe65f3576eec441"
       }
       {
-        content: "Hi RonakPustack, awesome to know that this is your first comment, glad that I helped you get started."
-        authorId: "7fe91f92cbb4400da92f7e6a7631cd2a"
-        postId: "c2ecf3721a0040679514bec8f4233722"
+        content: "Ronak99's comment 2."
+        authorId: "a36c6b86bf2c4dab9679fe6d263a399a"
+        postId: "d6bb2907a46e49f6bfe65f3576eec441"
       }
       {
-        content: "Oh yeah, you sure did."
-        authorId: "228627eada1940ae8b48ab916f941210"
-        postId: "c2ecf3721a0040679514bec8f4233722"
+        content: "RonakPustack's Comment."
+        authorId: "5c4dc65636bd46e780fc7c97efb844ce"
+        postId: "d6bb2907a46e49f6bfe65f3576eec441"
       }
     ]
   )
 }
 
-mutation LikePost {
-  like_insert(
-    data: {
-      userId: "7fe91f92cbb4400da92f7e6a7631cd2a"
-      postId: "c2ecf3721a0040679514bec8f4233722"
+query AllPostByOneUser {
+  user(id: "a36c6b86bf2c4dab9679fe6d263a399a") {
+    id
+    username
+    posts_on_author(limit: 2) {
+      id
+      content
     }
-  )
+  }
 }
 
-# mutation DislikePost {
-#   like_delete(id: "")
-# }
+query MyUser {
+  users {
+    id
+    username
+  }
+}
+
+query AllCommentsByOneUser {
+  user(id: "a36c6b86bf2c4dab9679fe6d263a399a") {
+    id
+    username
+    posts_on_author(limit: 2) {
+      content
+      comments_on_post {
+        id
+        author {
+          id
+          username
+        }
+        content
+      }
+    }
+  }
+}
+
+query GetAllPostsByUser($id: UUID!) @auth(level: USER) {
+  user(id: $id) {
+    posts: posts_on_author {
+      content
+      createdAt
+      comments_on_post {
+        id
+        author {
+          id
+          username
+          picture
+        }
+      }
+    }
+  }
+}

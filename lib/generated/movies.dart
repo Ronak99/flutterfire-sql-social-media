@@ -2,19 +2,15 @@ library movies_connector;
 import 'package:firebase_data_connect/firebase_data_connect.dart';
 import 'dart:convert';
 
+part 'create_user.dart';
+
 part 'create_post.dart';
 
 part 'delete_post.dart';
 
-part 'create_user.dart';
-
 part 'delete_user.dart';
 
 part 'create_comment.dart';
-
-part 'like_post.dart';
-
-part 'dislike_post.dart';
 
 part 'get_user.dart';
 
@@ -35,6 +31,11 @@ part 'get_all_posts_by_me.dart';
 class MoviesConnector {
   
   
+  CreateUserVariablesBuilder createUser ({required String username,required String picture,}) {
+    return CreateUserVariablesBuilder(dataConnect, username: username,picture: picture,);
+  }
+  
+  
   CreatePostVariablesBuilder createPost ({required String authorId,required String content,}) {
     return CreatePostVariablesBuilder(dataConnect, authorId: authorId,content: content,);
   }
@@ -45,11 +46,6 @@ class MoviesConnector {
   }
   
   
-  CreateUserVariablesBuilder createUser ({required String username,required String picture,}) {
-    return CreateUserVariablesBuilder(dataConnect, username: username,picture: picture,);
-  }
-  
-  
   DeleteUserVariablesBuilder deleteUser ({required String uid,}) {
     return DeleteUserVariablesBuilder(dataConnect, uid: uid,);
   }
@@ -57,16 +53,6 @@ class MoviesConnector {
   
   CreateCommentVariablesBuilder createComment ({required String authorId,required String postId,required String content,}) {
     return CreateCommentVariablesBuilder(dataConnect, authorId: authorId,postId: postId,content: content,);
-  }
-  
-  
-  LikePostVariablesBuilder likePost ({required String userId,required String postId,}) {
-    return LikePostVariablesBuilder(dataConnect, userId: userId,postId: postId,);
-  }
-  
-  
-  DislikePostVariablesBuilder dislikePost ({required String id,}) {
-    return DislikePostVariablesBuilder(dataConnect, id: id,);
   }
   
   

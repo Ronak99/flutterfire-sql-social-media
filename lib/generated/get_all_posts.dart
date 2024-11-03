@@ -32,9 +32,6 @@ class GetAllPostsVariablesBuilder {
    GetAllPostsPostsAuthor author;
 
   
-   List<GetAllPostsPostsLikesOnPost> likes_on_post;
-
-  
    List<GetAllPostsPostsCommentsOnPost> comments_on_post;
 
   
@@ -75,18 +72,6 @@ class GetAllPostsVariablesBuilder {
         
         ,
       
-        likes_on_post = 
- 
-    
-      (json['likes_on_post'] as List<dynamic>)
-        .map((e) => GetAllPostsPostsLikesOnPost.fromJson(e))
-        .toList()
-    
-  
-
-        
-        ,
-      
         comments_on_post = 
  
     
@@ -99,8 +84,6 @@ class GetAllPostsVariablesBuilder {
         
         
        {
-      
-        
       
         
       
@@ -151,16 +134,6 @@ class GetAllPostsVariablesBuilder {
       
     
       
-      json['likes_on_post'] = 
-  
-    
-      likes_on_post.map((e) => e.toJson()).toList()
-    
-  
-;
-      
-    
-      
       json['comments_on_post'] = 
   
     
@@ -182,8 +155,6 @@ class GetAllPostsVariablesBuilder {
       required this.createdAt,
     
       required this.author,
-    
-      required this.likes_on_post,
     
       required this.comments_on_post,
     
@@ -279,146 +250,6 @@ class GetAllPostsVariablesBuilder {
       required this.username,
     
       required this.picture,
-    
-  });
-}
-
-
-
-  class GetAllPostsPostsLikesOnPost {
-  
-   String id;
-
-  
-   GetAllPostsPostsLikesOnPostUser user;
-
-  
-  
-    
-    
-    
-    GetAllPostsPostsLikesOnPost.fromJson(dynamic json):
-        id = 
- 
-    nativeFromJson<String>(json['id'])
-  
-
-        
-        ,
-      
-        user = 
- 
-    GetAllPostsPostsLikesOnPostUser.fromJson(json['user'])
-  
-
-        
-        
-       {
-      
-        
-      
-        
-      
-    }
-
-
-  Map<String, dynamic> toJson() {
-    Map<String, dynamic> json = {};
-    
-      
-      json['id'] = 
-  
-    nativeToJson<String>(id)
-    
-;
-      
-    
-      
-      json['user'] = 
-  
-      user.toJson()
-  
-;
-      
-    
-    return json;
-  }
-
-  GetAllPostsPostsLikesOnPost({
-    
-      required this.id,
-    
-      required this.user,
-    
-  });
-}
-
-
-
-  class GetAllPostsPostsLikesOnPostUser {
-  
-   String id;
-
-  
-   String username;
-
-  
-  
-    
-    
-    
-    GetAllPostsPostsLikesOnPostUser.fromJson(dynamic json):
-        id = 
- 
-    nativeFromJson<String>(json['id'])
-  
-
-        
-        ,
-      
-        username = 
- 
-    nativeFromJson<String>(json['username'])
-  
-
-        
-        
-       {
-      
-        
-      
-        
-      
-    }
-
-
-  Map<String, dynamic> toJson() {
-    Map<String, dynamic> json = {};
-    
-      
-      json['id'] = 
-  
-    nativeToJson<String>(id)
-    
-;
-      
-    
-      
-      json['username'] = 
-  
-    nativeToJson<String>(username)
-    
-;
-      
-    
-    return json;
-  }
-
-  GetAllPostsPostsLikesOnPostUser({
-    
-      required this.id,
-    
-      required this.username,
     
   });
 }

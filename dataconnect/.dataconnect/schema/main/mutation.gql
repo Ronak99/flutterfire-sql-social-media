@@ -9,14 +9,14 @@ extend type Mutation {
     data: Comment_Data!
   ): Comment_KeyOutput! @fdc_generated(from: "Comment", purpose: INSERT_SINGLE)
   """
-  ✨ Insert a single `Like` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert a single `Object` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  like_insert(
+  object_one_insert(
     """
     Data object to insert into the table.
     """
-    data: Like_Data!
-  ): Like_KeyOutput! @fdc_generated(from: "Like", purpose: INSERT_SINGLE)
+    data: Object_Data!
+  ): Object_KeyOutput! @fdc_generated(from: "Object", purpose: INSERT_SINGLE)
   """
   ✨ Insert a single `Post` into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -45,14 +45,14 @@ extend type Mutation {
     data: [Comment_Data!]!
   ): [Comment_KeyOutput!]! @fdc_generated(from: "Comment", purpose: INSERT_MULTIPLE)
   """
-  ✨ Insert `Like` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
+  ✨ Insert `Object` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
-  like_insertMany(
+  object_one_insertMany(
     """
     List of data objects to insert into the table.
     """
-    data: [Like_Data!]!
-  ): [Like_KeyOutput!]! @fdc_generated(from: "Like", purpose: INSERT_MULTIPLE)
+    data: [Object_Data!]!
+  ): [Object_KeyOutput!]! @fdc_generated(from: "Object", purpose: INSERT_MULTIPLE)
   """
   ✨ Insert `Post` objects into the table. Columns not specified in `data` will receive defaults (e.g. `null`).
   """
@@ -81,14 +81,14 @@ extend type Mutation {
     data: Comment_Data!
   ): Comment_KeyOutput! @fdc_generated(from: "Comment", purpose: UPSERT_SINGLE)
   """
-  ✨ Insert or update a single `Like` into the table, based on the primary key. Returns the key of the newly inserted `Like`.
+  ✨ Insert or update a single `Object` into the table, based on the primary key. Returns the key of the newly inserted `Object`.
   """
-  like_upsert(
+  object_one_upsert(
     """
     Data object to insert or update if it already exists.
     """
-    data: Like_Data!
-  ): Like_KeyOutput! @fdc_generated(from: "Like", purpose: UPSERT_SINGLE)
+    data: Object_Data!
+  ): Object_KeyOutput! @fdc_generated(from: "Object", purpose: UPSERT_SINGLE)
   """
   ✨ Insert or update a single `Post` into the table, based on the primary key. Returns the key of the newly inserted `Post`.
   """
@@ -117,14 +117,14 @@ extend type Mutation {
     data: [Comment_Data!]!
   ): [Comment_KeyOutput!]! @fdc_generated(from: "Comment", purpose: UPSERT_MULTIPLE)
   """
-  ✨ Insert or update `Like` objects into the table, based on the primary key. Returns the key of the newly inserted `Like`.
+  ✨ Insert or update `Object` objects into the table, based on the primary key. Returns the key of the newly inserted `Object`.
   """
-  like_upsertMany(
+  object_one_upsertMany(
     """
     List of data objects to insert or update if it already exists.
     """
-    data: [Like_Data!]!
-  ): [Like_KeyOutput!]! @fdc_generated(from: "Like", purpose: UPSERT_MULTIPLE)
+    data: [Object_Data!]!
+  ): [Object_KeyOutput!]! @fdc_generated(from: "Object", purpose: UPSERT_MULTIPLE)
   """
   ✨ Insert or update `Post` objects into the table, based on the primary key. Returns the key of the newly inserted `Post`.
   """
@@ -168,9 +168,9 @@ extend type Mutation {
     data: Comment_Data!
   ): Comment_KeyOutput @fdc_generated(from: "Comment", purpose: UPDATE_SINGLE)
   """
-  ✨ Update a single `Like` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
+  ✨ Update a single `Object` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
   """
-  like_update(
+  object_one_update(
     """
     The unique ID of the object.
     """
@@ -179,18 +179,18 @@ extend type Mutation {
     """
     The key used to identify the object.
     """
-    key: Like_Key
+    key: Object_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Like_FirstRow
+    first: Object_FirstRow
 
     """
     Data object containing fields to be updated.
     """
-    data: Like_Data!
-  ): Like_KeyOutput @fdc_generated(from: "Like", purpose: UPDATE_SINGLE)
+    data: Object_Data!
+  ): Object_KeyOutput @fdc_generated(from: "Object", purpose: UPDATE_SINGLE)
   """
   ✨ Update a single `Post` based on `id`, `key` or `first`, setting columns specified in `data`. Returns `null` if not found.
   """
@@ -259,13 +259,13 @@ extend type Mutation {
     data: Comment_Data!
   ): Int! @fdc_generated(from: "Comment", purpose: UPDATE_MULTIPLE)
   """
-  ✨ Update `Like` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
+  ✨ Update `Object` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
-  like_updateMany(
+  object_one_updateMany(
     """
     Filter condition to specify which rows to update.
     """
-    where: Like_Filter
+    where: Object_Filter
 
     """
     Set to true to update all rows.
@@ -275,8 +275,8 @@ extend type Mutation {
     """
     Data object containing fields to update.
     """
-    data: Like_Data!
-  ): Int! @fdc_generated(from: "Like", purpose: UPDATE_MULTIPLE)
+    data: Object_Data!
+  ): Int! @fdc_generated(from: "Object", purpose: UPDATE_MULTIPLE)
   """
   ✨ Update `Post` objects matching `where` conditions (or `all`, if true) according to `data`. Returns the number of rows updated.
   """
@@ -335,9 +335,9 @@ extend type Mutation {
     first: Comment_FirstRow
   ): Comment_KeyOutput @fdc_generated(from: "Comment", purpose: DELETE_SINGLE)
   """
-  ✨ Delete a single `Like` based on `id`, `key` or `first` and return its key (or `null` if not found).
+  ✨ Delete a single `Object` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
-  like_delete(
+  object_one_delete(
     """
     The unique ID of the object.
     """
@@ -346,13 +346,13 @@ extend type Mutation {
     """
     The key used to identify the object.
     """
-    key: Like_Key
+    key: Object_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Like_FirstRow
-  ): Like_KeyOutput @fdc_generated(from: "Like", purpose: DELETE_SINGLE)
+    first: Object_FirstRow
+  ): Object_KeyOutput @fdc_generated(from: "Object", purpose: DELETE_SINGLE)
   """
   ✨ Delete a single `Post` based on `id`, `key` or `first` and return its key (or `null` if not found).
   """
@@ -406,19 +406,19 @@ extend type Mutation {
     all: Boolean = false
   ): Int! @fdc_generated(from: "Comment", purpose: DELETE_MULTIPLE)
   """
-  ✨ Delete `Like` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
+  ✨ Delete `Object` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """
-  like_deleteMany(
+  object_one_deleteMany(
     """
     Filter condition to specify which rows to delete.
     """
-    where: Like_Filter
+    where: Object_Filter
 
     """
     Set to true to delete all rows.
     """
     all: Boolean = false
-  ): Int! @fdc_generated(from: "Like", purpose: DELETE_MULTIPLE)
+  ): Int! @fdc_generated(from: "Object", purpose: DELETE_MULTIPLE)
   """
   ✨ Delete `Post` objects matching `where` conditions (or `all`, if true). Returns the number of rows deleted.
   """

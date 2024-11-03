@@ -8,16 +8,6 @@ extend type Comment {
   """
   postId: UUID! @fdc_generated(from: "Comment.post", purpose: IMPLICIT_REF_FIELD)
 }
-extend type Like {
-  """
-  ✨ Implicit foreign key field based on `Like`.`post`. It must match the value of `Post`.`id`. See `@ref` for how to customize it.
-  """
-  postId: UUID! @fdc_generated(from: "Like.post", purpose: IMPLICIT_REF_FIELD)
-  """
-  ✨ Implicit foreign key field based on `Like`.`user`. It must match the value of `User`.`id`. See `@ref` for how to customize it.
-  """
-  userId: UUID! @fdc_generated(from: "Like.user", purpose: IMPLICIT_REF_FIELD)
-}
 extend type Post {
   """
   ✨ Implicit foreign key field based on `Post`.`author`. It must match the value of `User`.`id`. See `@ref` for how to customize it.

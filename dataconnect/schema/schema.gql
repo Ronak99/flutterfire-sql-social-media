@@ -1,13 +1,29 @@
-# Users
-# Suppose a user can leave comments for posts
-# user:comments is a one to many relationship
-# post:comments is a one to many relationship,
-# post:user is a many to many relationship
-
-# Users
+# I'll write type User for our user object, then use the @table directive, anything that has @ associated with it in graph QL is known as a directive. In this case, the @table describes our User object as a table.
+# I'll pass in a name, this defines the name of our table
+# Then I'll set singular to user and plural to users, this helps us in writing readable queries, let me show you an example. <Show Object Example>
+# Finally, the key defines a primary key for the table.
 type User
   @table(name: "Users", singular: "user", plural: "users", key: ["id"]) {
   id: UUID! @col(name: "user_id") @default(expr: "uuidV4()")
+  username: String! @col(name: "username", dataType: "varchar(30)") @unique
+  picture: String!
+    @col(name: "picture")
+    @default(
+      value: "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg"
+    )
+  # Generated from @ref in Post and Comment tables:
+  # posts_on_user
+  # comments_on_user
+}
+
+type Object
+  @table(
+    name: "Object"
+    singular: "object_one"
+    plural: "object_multiple"
+    key: ["id"]
+  ) {
+  id: UUID! @col(name: "object_id") @default(expr: "uuidV4()")
   username: String! @col(name: "username", dataType: "varchar(30)")
   picture: String!
     @col(name: "picture")
@@ -20,6 +36,11 @@ type User
 }
 
 # Posts
+# Let's move on to defining posts, this is where the magic of relational database will be highlighted.
+# I'll write type User for our user object, then use the @table directive, anything that has @ associated with it in graph QL is known as a directive. In this case, the @table describes our User object as a table.
+# I'll pass in a name, this defines the name of our table
+# Then I'll set singular to user and plural to users, this helps us in writing readable queries, let me show you an example. <Show Object Example>
+# Finally, the key defines a primary key for the table.
 type Post
   @table(name: "Posts", singular: "post", plural: "posts", key: ["id"]) {
   id: UUID! @col(name: "post_id") @default(expr: "uuidV4()")
@@ -47,11 +68,4 @@ type Comment
   post: Post! @ref
   # postId: UUID! <- this is created by the above @ref
   createdAt: Timestamp! @default(expr: "request.time")
-}
-
-# Likes
-type Like @table(name: "Like", singular: "like", plural: "likes", key: ["id"]) {
-  id: UUID! @col(name: "like_id") @default(expr: "uuidV4()")
-  user: User! @ref
-  post: Post! @ref
 }

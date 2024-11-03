@@ -1,15 +1,15 @@
+# Create a user based on user input
+mutation CreateUser($username: String!, $picture: String!)
+@auth(level: PUBLIC) {
+  user_insert(data: { username: $username, picture: $picture })
+}
+
 mutation CreatePost($authorId: UUID!, $content: String!) @auth(level: PUBLIC) {
   post_insert(data: { authorId: $authorId, content: $content })
 }
 
 mutation DeletePost($id: UUID!) @auth(level: PUBLIC) {
   post_delete(id: $id)
-}
-
-# Create a user based on user input
-mutation CreateUser($username: String!, $picture: String!)
-@auth(level: PUBLIC) {
-  user_insert(data: { username: $username, picture: $picture })
 }
 
 mutation DeleteUser($uid: UUID!) @auth(level: PUBLIC) {
@@ -21,12 +21,4 @@ mutation CreateComment($authorId: UUID!, $postId: UUID!, $content: String!)
   comment_insert(
     data: { authorId: $authorId, content: $content, postId: $postId }
   )
-}
-
-mutation LikePost($userId: UUID!, $postId: UUID!) @auth(level: PUBLIC) {
-  like_insert(data: { userId: $userId, postId: $postId })
-}
-
-mutation DislikePost($id: UUID!) @auth(level: PUBLIC) {
-  like_delete(key: { id: $id })
 }

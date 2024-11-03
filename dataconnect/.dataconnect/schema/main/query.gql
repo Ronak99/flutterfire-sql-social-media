@@ -19,9 +19,9 @@ extend type Query {
     first: Comment_FirstRow
   ): Comment @fdc_generated(from: "Comment", purpose: QUERY_SINGLE)
   """
-  ✨ Look up a single `Like` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
+  ✨ Look up a single `Object` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
-  like(
+  object_one(
     """
     The unique ID of the object.
     """
@@ -30,13 +30,13 @@ extend type Query {
     """
     The key used to identify the object.
     """
-    key: Like_Key
+    key: Object_Key
 
     """
     Fetch the first row based on the filters and ordering.
     """
-    first: Like_FirstRow
-  ): Like @fdc_generated(from: "Like", purpose: QUERY_SINGLE)
+    first: Object_FirstRow
+  ): Object @fdc_generated(from: "Object", purpose: QUERY_SINGLE)
   """
   ✨ Look up a single `Post` based on `id`, `key` or `first` and return selected fields (or `null` if not found).
   """
@@ -100,18 +100,18 @@ extend type Query {
     limit: Int = 100
   ): [Comment!]! @fdc_generated(from: "Comment", purpose: QUERY_MULTIPLE)
   """
-  ✨ List `Like` objects in the table, optionally filtered by `where` conditions.
+  ✨ List `Object` objects in the table, optionally filtered by `where` conditions.
   """
-  likes(
+  object_multiple(
     """
     Filter condition to narrow down the query results.
     """
-    where: Like_Filter
+    where: Object_Filter
 
     """
     Order the query results by specific fields.
     """
-    orderBy: [Like_Order!]
+    orderBy: [Object_Order!]
 
     """
     Number of rows to skip before starting to return the results.
@@ -122,7 +122,7 @@ extend type Query {
     Maximum number of rows to return (defaults to 100 rows).
     """
     limit: Int = 100
-  ): [Like!]! @fdc_generated(from: "Like", purpose: QUERY_MULTIPLE)
+  ): [Object!]! @fdc_generated(from: "Object", purpose: QUERY_MULTIPLE)
   """
   ✨ List `Post` objects in the table, optionally filtered by `where` conditions.
   """
